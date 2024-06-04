@@ -117,3 +117,32 @@ body{
         font-size: 20px; /* Adjust message font size for smaller screens */
     }
 }
+
+@media screen and (min-width: 321px) and (max-width: 667px) {
+    .cuadrojuego {
+        width: 350px;
+        padding: 5px;
+        height: 350px; /* Adjust height to fit content */
+        margin-bottom: 60px; /* Add bottom margin to give space for the button */
+    }
+    .cuadrado {
+        width: 100%;
+        margin: 1%;
+        font-size: 60px; /* Adjust font size for medium screens */
+    }
+    .boton {
+        width: 100%;
+        padding: 15px; /* Adjust padding for medium screens */
+        font-size: 18px; /* Adjust font size for medium screens */
+        position: fixed; /* Fix position to bottom of the screen */
+        bottom: 5px;
+        right: 5px;
+        left: 5px;
+    }
+    .cuadricula {
+        grid-template-columns: auto auto auto;
+    }
+    .mensaje {
+        font-size: 25px; /* Adjust message font size for medium screens */
+    }
+}
