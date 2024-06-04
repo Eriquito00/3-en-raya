@@ -89,26 +89,29 @@ body{
     margin-bottom: 20px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 320px) {
     .cuadrojuego {
         width: 100%;
-        padding: 10px;
+        padding: 5px;
     }
     .cuadrado {
         width: 100%;
-        margin: 1.5%;
-        font-size: 50px;
+        margin: 1%;
+        font-size: 40px; /* Reduce font size for smaller screens */
     }
     .boton {
         width: 100%;
-        padding: 20px;
-        font-size: 16px;
+        padding: 15px; /* Adjust padding for smaller screens */
+        font-size: 14px; /* Adjust font size for smaller screens */
         top: auto;
-        bottom: 10px;
-        right: 10px;
-        left: 10px;
+        bottom: 5px;
+        right: 5px;
+        left: 5px;
     }
     .cuadricula {
         grid-template-columns: auto;
+    }
+    .mensaje {
+        font-size: 20px; /* Adjust message font size for smaller screens */
     }
 }
