@@ -1,48 +1,52 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-@font-face{
+@font-face {
     font-family: "fuente";
     src: url('../fuente/fuente.ttf');
 }
-body{
+
+body {
     background-image: url('../imagenes/fondo.jpg');
     cursor: url('../imagenes/cursor.png'), pointer;
     backface-visibility: hidden;
+    font-family: "fuente";
 }
 
-.cuadrojuego{
-    height: 700px;
+.cuadrojuego {
+    height: 100vh;
     max-width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap:25px;
+    gap: 25px;
     text-align: center;
+    padding: 10px;
 }
 
-.titulojuego, .info{
-    text-align: center;
+.titulojuego, .info {
     color: black;
     background-color: white;
-    font-size: 30px;
+    font-size: 24px;
     border-radius: 15px;
-    font-family: "fuente";
+    padding: 10px;
+    width: 100%;
 }
 
-.cuadricula{
+.cuadricula {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(3, 1fr);
     gap: 2px;
+    width: 100%;
 }
 
-.cuadrado{
-    width:150px;
-    height: 150px;
+.cuadrado {
+    width: 100px;
+    height: 100px;
     border-radius: 20px;
     text-align: center;
     color: black;
@@ -51,69 +55,63 @@ body{
     align-items: center;
     background-color: grey;
     transition: background-color ease-in 0.3s;
-    font-size: 100px;
-    font-family: "fuente";
+    font-size: 24px;
 }
 
-.cuadrado:hover{
+.cuadrado:hover {
     background-color: yellow;
 }
 
-.boton{
-    display:inline-flex;
-    padding: 18px 18px;
+.boton {
+    display: inline-flex;
+    padding: 10px 15px;
     background: greenyellow;
     color: white;
     cursor: pointer;
     justify-content: center;
     font-weight: bold;
-    transition:color ease-out 0.3s;
-    font-size: 20px;
-    font-family: "fuente";
-    position: absolute;
-    top: 90%;
-    right: 42%;
-    left: 42%;
+    transition: color ease-out 0.3s;
+    font-size: 16px;
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
 }
 
-.boton:hover{
-    background:white ;
+.boton:hover {
+    background: white;
     color: green;
     border: 1px solid green;
 }
 
 .mensaje {
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bold;
     text-align: center;
     margin-bottom: 20px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 390px) {
     .cuadrojuego {
-        width: 300px;
-        padding: 5px;
-        height: 300px; /* Adjust height to fit content */
-        margin-bottom: 60px; /* Add bottom margin to give space for the button */
+        width: 100%;
+        padding: 10px;
+        height: auto;
     }
+
     .cuadrado {
-        width: 100%;
-        margin: 1%;
-        font-size: 40px; /* Reduce font size for smaller screens */
+        width: 90px;
+        height: 90px;
+        font-size: 18px;
     }
+
     .boton {
-        width: 100%;
-        padding: 15px; /* Adjust padding for smaller screens */
-        font-size: 14px; /* Adjust font size for smaller screens */
-        position: fixed; /* Fix position to bottom of the screen */
-        bottom: 5px;
-        right: 5px;
-        left: 5px;
+        width: calc(100% - 20px);
+        padding: 10px;
+        font-size: 14px;
     }
-    .cuadricula {
-        grid-template-columns: auto;
-    }
+
     .mensaje {
-        font-size: 20px; /* Adjust message font size for smaller screens */
+        font-size: 18px;
     }
 }
