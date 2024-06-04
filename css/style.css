@@ -6,11 +6,11 @@
 
 @font-face{
     font-family: "fuente";
-    src: url(../fuente/fuente.ttf);
+    src: url('../fuente/fuente.ttf');
 }
 body{
-    background-image: url(../imagenes/fondo.jpg);
-    cursor: url(../imagenes/cursor.png), pointer;
+    background-image: url('../imagenes/fondo.jpg');
+    cursor: url('../imagenes/cursor.png'), pointer;
     backface-visibility: hidden;
 }
 
@@ -87,4 +87,4 @@ body{
     font-weight: bold;
     text-align: center;
     margin-bottom: 20px;
-  }
+}
