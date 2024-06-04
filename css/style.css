@@ -99,16 +99,20 @@ body {
         height: auto;
     }
 
+    .cuadricula {
+        gap: 1px; /* Reducir la distancia entre los cuadrados */
+    }
+
     .cuadrado {
-        width: 90px;
-        height: 90px;
-        font-size: 25px;
+        width: 100px; /* Mantener tamaño adecuado para la rejilla */
+        height: 100px; /* Mantener tamaño adecuado para la rejilla */
+        font-size: 40px; /* Aumentar el tamaño de la fuente para X y O */
     }
 
     .boton {
-        width: calc(100% - 30px);
+        width: calc(100% - 20px);
         padding: 10px;
-        font-size: 20px;
+        font-size: 14px;
     }
 
     .mensaje {
