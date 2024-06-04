@@ -93,6 +93,8 @@ body{
     .cuadrojuego {
         width: 100%;
         padding: 5px;
+        height: auto; /* Adjust height to fit content */
+        margin-bottom: 60px; /* Add bottom margin to give space for the button */
     }
     .cuadrado {
         width: 100%;
@@ -103,7 +105,7 @@ body{
         width: 100%;
         padding: 15px; /* Adjust padding for smaller screens */
         font-size: 14px; /* Adjust font size for smaller screens */
-        top: auto;
+        position: fixed; /* Fix position to bottom of the screen */
         bottom: 5px;
         right: 5px;
         left: 5px;
