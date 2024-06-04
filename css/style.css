@@ -1,48 +1,52 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-@font-face{
+  }
+  
+  @font-face {
     font-family: "fuente";
     src: url('../fuente/fuente.ttf');
-}
-body{
+  }
+  
+  body {
     background-image: url('../imagenes/fondo.jpg');
     cursor: url('../imagenes/cursor.png'), pointer;
     backface-visibility: hidden;
-}
-
-.cuadrojuego{
-    height: 700px;
+  }
+  
+  .cuadrojuego {
+    height: 100%;
     max-width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap:25px;
+    gap: 25px;
     text-align: center;
-}
-
-.titulojuego, .info{
+    padding: 10px; /* Agregar padding para asegurar que el contenido no toque los bordes */
+  }
+  
+  .titulojuego, .info {
     text-align: center;
     color: black;
     background-color: white;
-    font-size: 30px;
+    font-size: 24px; /* Reducir el tamaño de fuente */
     border-radius: 15px;
     font-family: "fuente";
-}
-
-.cuadricula{
+    padding: 10px; /* Añadir padding para mejorar la legibilidad */
+  }
+  
+  .cuadricula {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(3, 1fr); /* Usar repeat para columnas iguales */
     gap: 2px;
-}
-
-.cuadrado{
-    width:150px;
-    height: 150px;
+    width: 100%; /* Asegurar que ocupe el ancho completo */
+  }
+  
+  .cuadrado {
+    width: 100px; /* Ajustar tamaño de los cuadrados */
+    height: 100px; /* Ajustar tamaño de los cuadrados */
     border-radius: 20px;
     text-align: center;
     color: black;
@@ -51,98 +55,70 @@ body{
     align-items: center;
     background-color: grey;
     transition: background-color ease-in 0.3s;
-    font-size: 100px;
+    font-size: 24px; /* Reducir el tamaño de la fuente */
     font-family: "fuente";
-}
-
-.cuadrado:hover{
+  }
+  
+  .cuadrado:hover {
     background-color: yellow;
-}
-
-.boton{
-    display:inline-flex;
-    padding: 18px 18px;
+  }
+  
+  .boton {
+    display: inline-flex;
+    padding: 10px 15px; /* Ajustar padding */
     background: greenyellow;
     color: white;
     cursor: pointer;
     justify-content: center;
     font-weight: bold;
-    transition:color ease-out 0.3s;
-    font-size: 20px;
+    transition: color ease-out 0.3s;
+    font-size: 16px; /* Reducir el tamaño de la fuente */
     font-family: "fuente";
-    position: absolute;
-    top: 90%;
-    right: 42%;
-    left: 42%;
-}
-
-.boton:hover{
-    background:white ;
+    position: fixed;
+    bottom: 10px; /* Ajustar posición para asegurar que esté visible */
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px; /* Añadir bordes redondeados */
+  }
+  
+  .boton:hover {
+    background: white;
     color: green;
     border: 1px solid green;
-}
-
-.mensaje {
-    font-size: 30px;
+  }
+  
+  .mensaje {
+    font-size: 20px; /* Reducir el tamaño de la fuente */
     font-weight: bold;
     text-align: center;
     margin-bottom: 20px;
-}
-
-@media screen and (max-width: 320px) {
+  }
+  
+  @media screen and (max-width: 375px) {
     .cuadrojuego {
-        width: 300px;
-        padding: 5px;
-        height: 300px; /* Adjust height to fit content */
-        margin-bottom: 60px; /* Add bottom margin to give space for the button */
+      width: 100%;
+      padding: 10px;
+      height: auto; /* Ajustar altura automáticamente según el contenido */
     }
+  
     .cuadrado {
-        width: 100%;
-        margin: 1%;
-        font-size: 40px; /* Reduce font size for smaller screens */
+      width: 90px; /* Ajustar tamaño de los cuadrados */
+      height: 90px; /* Ajustar tamaño de los cuadrados */
+      font-size: 18px; /* Ajustar tamaño de la fuente */
     }
+  
     .boton {
-        width: 100%;
-        padding: 15px; /* Adjust padding for smaller screens */
-        font-size: 14px; /* Adjust font size for smaller screens */
-        position: fixed; /* Fix position to bottom of the screen */
-        bottom: 5px;
-        right: 5px;
-        left: 5px;
+      width: calc(100% - 20px); /* Asegurar que el botón tenga un margen */
+      padding: 10px;
+      font-size: 16px;
     }
+  
     .cuadricula {
-        grid-template-columns: auto;
+      grid-template-columns: repeat(3, 1fr);
     }
+  
     .mensaje {
-        font-size: 20px; /* Adjust message font size for smaller screens */
+      font-size: 18px;
     }
-}
-
-@media screen and (min-width: 321px) and (max-width: 667px) {
-    .cuadrojuego {
-        width: 350px;
-        padding: 5px;
-        height: 350px; /* Adjust height to fit content */
-        margin-bottom: 60px; /* Add bottom margin to give space for the button */
-    }
-    .cuadrado {
-        width: 100%;
-        margin: 1%;
-        font-size: 60px; /* Adjust font size for medium screens */
-    }
-    .boton {
-        width: 100%;
-        padding: 15px; /* Adjust padding for medium screens */
-        font-size: 18px; /* Adjust font size for medium screens */
-        position: fixed; /* Fix position to bottom of the screen */
-        bottom: 5px;
-        right: 5px;
-        left: 5px;
-    }
-    .cuadricula {
-        grid-template-columns: auto auto auto;
-    }
-    .mensaje {
-        font-size: 25px; /* Adjust message font size for medium screens */
-    }
-}
+  }
+  
