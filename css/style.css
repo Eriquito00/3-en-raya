@@ -91,9 +91,9 @@ body{
 
 @media screen and (max-width: 320px) {
     .cuadrojuego {
-        width: 100%;
+        width: 300px;
         padding: 5px;
-        height: auto; /* Adjust height to fit content */
+        height: 300px; /* Adjust height to fit content */
         margin-bottom: 60px; /* Add bottom margin to give space for the button */
     }
     .cuadrado {
