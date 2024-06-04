@@ -100,13 +100,13 @@ body {
     }
 
     .cuadricula {
-        gap: 1px; /* Reducir la distancia entre los cuadrados */
+        gap: 0.25px; /* Reducir la distancia entre los cuadrados */
     }
 
     .cuadrado {
         width: 100px; /* Mantener tamaño adecuado para la rejilla */
         height: 100px; /* Mantener tamaño adecuado para la rejilla */
-        font-size: 40px; /* Aumentar el tamaño de la fuente para X y O */
+        font-size: 50px; /* Aumentar el tamaño de la fuente para X y O */
     }
 
     .boton {
