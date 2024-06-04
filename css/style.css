@@ -2,21 +2,22 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  @font-face {
+}
+
+@font-face {
     font-family: "fuente";
     src: url('../fuente/fuente.ttf');
-  }
-  
-  body {
+}
+
+body {
     background-image: url('../imagenes/fondo.jpg');
     cursor: url('../imagenes/cursor.png'), pointer;
     backface-visibility: hidden;
-  }
-  
-  .cuadrojuego {
-    height: 100%;
+    font-family: "fuente";
+}
+
+.cuadrojuego {
+    height: 100vh;
     max-width: 100%;
     display: flex;
     flex-direction: column;
@@ -24,29 +25,28 @@
     align-items: center;
     gap: 25px;
     text-align: center;
-    padding: 10px; /* Agregar padding para asegurar que el contenido no toque los bordes */
-  }
-  
-  .titulojuego, .info {
-    text-align: center;
+    padding: 10px;
+}
+
+.titulojuego, .info {
     color: black;
     background-color: white;
-    font-size: 24px; /* Reducir el tamaño de fuente */
+    font-size: 24px;
     border-radius: 15px;
-    font-family: "fuente";
-    padding: 10px; /* Añadir padding para mejorar la legibilidad */
-  }
-  
-  .cuadricula {
+    padding: 10px;
+    width: 100%;
+}
+
+.cuadricula {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Usar repeat para columnas iguales */
+    grid-template-columns: repeat(3, 1fr);
     gap: 2px;
-    width: 100%; /* Asegurar que ocupe el ancho completo */
-  }
-  
-  .cuadrado {
-    width: 100px; /* Ajustar tamaño de los cuadrados */
-    height: 100px; /* Ajustar tamaño de los cuadrados */
+    width: 100%;
+}
+
+.cuadrado {
+    width: 100px;
+    height: 100px;
     border-radius: 20px;
     text-align: center;
     color: black;
@@ -55,70 +55,63 @@
     align-items: center;
     background-color: grey;
     transition: background-color ease-in 0.3s;
-    font-size: 24px; /* Reducir el tamaño de la fuente */
-    font-family: "fuente";
-  }
-  
-  .cuadrado:hover {
+    font-size: 24px;
+}
+
+.cuadrado:hover {
     background-color: yellow;
-  }
-  
-  .boton {
+}
+
+.boton {
     display: inline-flex;
-    padding: 10px 15px; /* Ajustar padding */
+    padding: 10px 15px;
     background: greenyellow;
     color: white;
     cursor: pointer;
     justify-content: center;
     font-weight: bold;
     transition: color ease-out 0.3s;
-    font-size: 16px; /* Reducir el tamaño de la fuente */
-    font-family: "fuente";
+    font-size: 16px;
     position: fixed;
-    bottom: 10px; /* Ajustar posición para asegurar que esté visible */
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    border-radius: 10px; /* Añadir bordes redondeados */
-  }
-  
-  .boton:hover {
+    border-radius: 10px;
+}
+
+.boton:hover {
     background: white;
     color: green;
     border: 1px solid green;
-  }
-  
-  .mensaje {
-    font-size: 20px; /* Reducir el tamaño de la fuente */
+}
+
+.mensaje {
+    font-size: 20px;
     font-weight: bold;
     text-align: center;
     margin-bottom: 20px;
-  }
-  
-  @media screen and (max-width: 375px) {
+}
+
+@media screen and (max-width: 390px) {
     .cuadrojuego {
-      width: 100%;
-      padding: 10px;
-      height: auto; /* Ajustar altura automáticamente según el contenido */
+        width: 100%;
+        padding: 10px;
+        height: auto;
     }
-  
+
     .cuadrado {
-      width: 90px; /* Ajustar tamaño de los cuadrados */
-      height: 90px; /* Ajustar tamaño de los cuadrados */
-      font-size: 18px; /* Ajustar tamaño de la fuente */
+        width: 90px;
+        height: 90px;
+        font-size: 18px;
     }
-  
+
     .boton {
-      width: calc(100% - 20px); /* Asegurar que el botón tenga un margen */
-      padding: 10px;
-      font-size: 16px;
+        width: calc(100% - 20px);
+        padding: 10px;
+        font-size: 14px;
     }
-  
-    .cuadricula {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  
+
     .mensaje {
-      font-size: 18px;
+        font-size: 18px;
     }
-  }
-  
+}
