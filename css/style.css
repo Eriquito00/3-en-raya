@@ -88,3 +88,27 @@ body{
     text-align: center;
     margin-bottom: 20px;
 }
+
+@media screen and (max-width: 600px) {
+    .cuadrojuego {
+        width: 100%;
+        padding: 10px;
+    }
+    .cuadrado {
+        width: 100%;
+        margin: 1.5%;
+        font-size: 50px;
+    }
+    .boton {
+        width: 100%;
+        padding: 20px;
+        font-size: 16px;
+        top: auto;
+        bottom: 10px;
+        right: 10px;
+        left: 10px;
+    }
+    .cuadricula {
+        grid-template-columns: auto;
+    }
+}
