@@ -88,3 +88,21 @@ body{
     text-align: center;
     margin-bottom: 20px;
 }
+
+@media (max-width: 768px){
+    .cuadrojuego{
+        height: 100vh;
+    }
+    .cuadrado{
+        width: 100px;
+        height: 100px;
+        font-size: 50px;
+    }
+    .boton{
+        font-size: 15px;
+        width: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 20px 0;
+    }
+}
