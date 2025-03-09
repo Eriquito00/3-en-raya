@@ -1,108 +1,140 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-@font-face{
+@font-face {
     font-family: "fuente";
     src: url('../fuente/fuente.ttf');
 }
-body{
-    background-image: url('../imagenes/fondo.jpg');
-    cursor: url('../imagenes/cursor.png'), pointer;
-    backface-visibility: hidden;
+
+body {
+    background: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+    background-color: #2a5298;    font-family: "fuente";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
-.cuadrojuego{
-    height: 700px;
-    max-width: 100%;
-    display: flex;
+h1 {
+    font-size: 75px;
+}
+
+p {
+    font-size: 30px;
+}
+
+h1, p {
+    margin-bottom: 25px;
+    text-align: center;
+    color: white;
+}
+
+.cuadricula {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 5px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap:25px;
     text-align: center;
 }
 
-.titulojuego, .info{
-    text-align: center;
-    color: black;
-    background-color: white;
-    font-size: 30px;
-    border-radius: 15px;
-    font-family: "fuente";
-}
-
-.cuadricula{
-    display: grid;
-    grid-template-columns: auto auto auto;
-    gap: 2px;
-}
-
-.cuadrado{
-    width:150px;
+.cuadrado {
+    width: 150px;
     height: 150px;
-    border-radius: 20px;
-    text-align: center;
-    color: black;
+    border-radius: 25px;
     display: flex;
     justify-content: center;
+    text-align: center;
     align-items: center;
-    background-color: grey;
-    transition: background-color ease-in 0.3s;
-    font-size: 100px;
+    background-color: white;
+    transition: 0.5s;
+    font-size: 125px;
+    cursor: pointer;
+    color: black;
     font-family: "fuente";
+    border: none;
 }
 
-.cuadrado:hover{
-    background-color: yellow;
-}
-
-.boton{
-    display:inline-flex;
-    padding: 18px 18px;
-    background: greenyellow;
+.otra_partida {
+    background: cornflowerblue;
     color: white;
     cursor: pointer;
     justify-content: center;
-    font-weight: bold;
-    transition:color ease-out 0.3s;
-    font-size: 20px;
-    font-family: "fuente";
-    position: absolute;
-    top: 90%;
-    right: 42%;
-    left: 42%;
-}
-
-.boton:hover{
-    background:white ;
-    color: green;
-    border: 1px solid green;
-}
-
-.mensaje {
+    transition: 0.5s;
     font-size: 30px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
+    font-family: "fuente";
+    margin-top: 35px;
+    padding: 30px;
+    border-radius: 25px;
+    border: none;
 }
 
-@media (max-width: 768px){
-    .cuadrojuego{
-        height: 100vh;
+.cuadrado:hover, .otra_partida:hover {
+    background-color: lightblue;
+}
+
+.marcador {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
+
+.marcador h3 {
+    display: flex;
+    flex-direction: row;
+    font-size: 50px;
+    padding: 25px;
+    color: white;
+}
+
+.marcador p {
+    font-size: 50px;
+}
+
+.ganador {
+    background-color: lightgreen;
+}
+
+@media (max-width: 768px) {
+    body {
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        padding: 120px;
     }
-    .cuadrado{
-        width: 100px;
-        height: 100px;
+
+    h1 {
+        font-size: 100px;
+    }
+
+    p {
         font-size: 50px;
     }
-    .boton{
-        font-size: 15px;
-        width: 50%;
-        left: 50%;
-        transform: translateX(-50%);
-        margin: 20px 0;
+
+    .cuadricula {
+        height: auto;
+        width: auto;
+    }
+
+    .cuadrado {
+        width: 250px;
+        height: 250px;
+        font-size: 200px;
+        border-radius: 50px;
+    }
+
+    .otra_partida {
+        font-size: 50px;
+        padding: 50px;
+    }
+
+    .marcador h3, .marcador p {
+        font-size: 75px;
     }
 }

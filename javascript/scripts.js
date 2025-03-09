@@ -1,90 +1,110 @@
-//el juego empieza con X
-let jugadorActual = "X";
-//el juego no esta terminado
-let juegoTerminado = false;
-//coje los estilos de cuadrado en el CSS que son descendientes de cuadricula
-let cuadricula = document.querySelectorAll(".cuadricula > .cuadrado");
-//dice la info de quien es el turno
-let info = document.getElementById("info");
-//dice que el boton de volver a jugar sea interactivo
+let c1 = document.getElementById("c1");
+let c2 = document.getElementById("c2");
+let c3 = document.getElementById("c3");
+let c4 = document.getElementById("c4");
+let c5 = document.getElementById("c5");
+let c6 = document.getElementById("c6");
+let c7 = document.getElementById("c7");
+let c8 = document.getElementById("c8");
+let c9 = document.getElementById("c9");
 let boton = document.getElementById("boton");
-//funcion que dice que empezara x y despues o, asi continuamente
-function cambiarJugador() {
-  jugadorActual = jugadorActual === "X" ? "O" : "X";
-//dice de quien es el turno de los 2 jugadores
-  info.innerHTML = `Es el turno del jugador ${jugadorActual}`;
-}
-//funcion que dice todos los tipos de coincidencias que tienen que haber para ganar
-function verificarGanador() {
-  const combinacionesGanadoras = [
-//de derecha a izquierda
-    [0, 1, 2],[3, 4, 5],[6, 7, 8],
-//de arriba a abajo
-    [0, 3, 6],[1, 4, 7],[2, 5, 8],
-//en diagonales
-    [0, 4, 8],[2, 4, 6]
-  ];
-//tienen que haver 3 simbolos iguales en las posiciones de combinacionesGanadoras para ganar 
-  for (let combinacion of combinacionesGanadoras) {
-    let [a, b, c] = combinacion;
-    if (
-      cuadricula[a].innerHTML === jugadorActual &&
-      cuadricula[b].innerHTML === jugadorActual &&
-      cuadricula[c].innerHTML === jugadorActual
-    ) {
-//en caso de que eso pase tienen que iluminarse de color verde los cuadrados por los que se ha ganado
+let info = document.getElementById("info");
+let marcadorX = document.getElementById("x");
+let marcadorO = document.getElementById("o");
+
+
+c1.addEventListener("click", main);
+c2.addEventListener("click", main);
+c3.addEventListener("click", main);
+c4.addEventListener("click", main);
+c5.addEventListener("click", main);
+c6.addEventListener("click", main);
+c7.addEventListener("click", main);
+c8.addEventListener("click", main);
+c9.addEventListener("click", main);
+boton.addEventListener("click", reiniciarJuego);
+
+let jugadorActual = "X";
+let juegoTerminado = false;
+let tablero = [c1, c2, c3, c4, c5, c6, c7, c8, c9];
+let x = 0, o = 0;
+
+function main(){
+  if (juegoTerminado) return;
+  if (this.innerHTML == "") {
+    this.innerHTML = jugadorActual;
+    if (verificaTablero(tablero)) {
+      info.innerHTML = "El ganador es el jugador " + jugadorActual + "!";
+      sumaPunto();
       juegoTerminado = true;
-      info.innerHTML = `El jugador ${jugadorActual} ha ganado!`;
-      cuadricula[a].style.backgroundColor = "lightgreen";
-      cuadricula[b].style.backgroundColor = "lightgreen";
-      cuadricula[c].style.backgroundColor = "lightgreen";
-      return;
+    }
+    else if (!compruebaVacio(tablero)) {
+      info.innerHTML = "Empate";
+      juegoTerminado = true;
+    }
+    else {
+      cambiarJugador();
     }
   }
-//la variable juegoTerminado se haya activado y no haya ninguna combinacion de combinacionesGanadoras el juego quedara empate
-  if (Array.from(cuadricula).every((cuadrado) => cuadrado.innerHTML !== "")) {
-    juegoTerminado = true;
-    info.innerHTML = "El juego ha terminado en empate";
-  }
 }
-//mira si el cuadrado esta vacio y el juego no ha terminado
-function manejarClic(event) {
-  let cuadrado = event.target;
-  if (cuadrado.innerHTML !== "" || juegoTerminado) {
-    return;
-  }
-//se verifica si el juego ha terminado y si no ha terminado cambia de jugador
-  cuadrado.innerHTML = jugadorActual;
-  verificarGanador();
-  if (!juegoTerminado) {
-    cambiarJugador();
-  }
+
+function cambiarJugador() {
+  if (jugadorActual == "X") jugadorActual = "O";
+  else jugadorActual = "X";
+  info.innerHTML = "Es el turno del jugador " + jugadorActual;
 }
-//si algun cuadrado ha sido clickado se ejecutara la funcion manejarClic
-cuadricula.forEach((cuadrado) => {
-  cuadrado.addEventListener("click", manejarClic);
-});
-//cambiar el turno de jugador
-info.innerHTML = `Es el turno del jugador ${jugadorActual}`;
-//boton para reiniciar el juego
-let botonReinicio = document.getElementById("boton-reinicio");
-//al hacer click que se ejecute el reiniciarJuego
-botonReinicio.addEventListener("click", reiniciarJuego);
-//funcion de reiniciar el juego
+
+function compruebaVacio(tablero){
+  for (let c of tablero) {
+    if (c.innerHTML == "") return true;
+  }
+  return false;
+}
+
+function verificaTablero(tablero){
+  if (verificarFila(tablero[0], tablero[1], tablero[2]) ||
+    verificarFila(tablero[3], tablero[4], tablero[5]) ||
+    verificarFila(tablero[6], tablero[7], tablero[8]) ||
+    verificarFila(tablero[0], tablero[3], tablero[6]) ||
+    verificarFila(tablero[1], tablero[4], tablero[7]) ||
+    verificarFila(tablero[2], tablero[5], tablero[8]) ||
+    verificarFila(tablero[0], tablero[4], tablero[8]) ||
+    verificarFila(tablero[2], tablero[4], tablero[6])) {
+    return true;
+  }
+  else false;
+}
+
+function verificarFila(p1, p2, p3) {
+  if (p1.innerHTML == jugadorActual &&
+    p2.innerHTML == jugadorActual &&
+    p3.innerHTML == jugadorActual){
+      p1.classList.add("ganador");
+      p2.classList.add("ganador");
+      p3.classList.add("ganador");
+      for (let c of tablero) {
+        c.style.pointerEvents = "none";
+      }
+      return true;
+    }
+  return false;
+}
+
 function reiniciarJuego() {
-  cuadricula.forEach((cuadrado) => (cuadrado.innerHTML = ""));
-//repite la funcion para que empiece X si ha ganado O, o puede que repita la funcion para que empiece O si ha ganado X
-  if ( juegoTerminado === true && jugadorActual === "X" ){
-      jugadorActual = "O";
-  }else {
-      jugadorActual = "X";
+  for (let c of tablero) {
+    c.textContent = "";
+    c.classList.remove("ganador");
+    c.classList.add("cuadrado");
+    c.style.pointerEvents = "auto";
   }
-//hacer que la funcion juegoTerminado sea falso 
+  jugadorActual = "X";
+  info.innerHTML = "Es el turno del jugador " + jugadorActual;
   juegoTerminado = false;
-//para poder jugar otra vez y vuelve a seleccionar el jugador que juega
-  info.innerHTML = `Es el turno del jugador ${jugadorActual}`;
-//reinicia el color de fondo de los cuadrados donde se ponen los simbolos
-  cuadricula.forEach((cuadrado) => (cuadrado.style.backgroundColor = ""));
 }
-//miriadax
-//desarrollo frontend con html, css y javascript
+
+function sumaPunto(){
+  if (jugadorActual == "X") x++;
+  else o++;
+  marcadorX.innerHTML = x;
+  marcadorO.innerHTML = o;
+}

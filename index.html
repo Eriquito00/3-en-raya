@@ -3,31 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Tres en raya</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
     <link rel="icon" type="image/png" href="./imagenes/logo.png">
+    <script defer src="./javascript/scripts.js"></script>
 </head>
 <body>
-    <div class="cuadrojuego">
-        <div class="titulojuego">
-            <h1>TRES EN RAYA</h1>
-        </div>
-        <p id = "info" class="info"></p>
-        <div class="cuadricula">
-            <div id="cuadrado1" class="cuadrado"></div>
-            <div id="cuadrado2" class="cuadrado"></div>
-            <div id="cuadrado3" class="cuadrado"></div>
-            <div id="cuadrado4" class="cuadrado"></div>
-            <div id="cuadrado5" class="cuadrado"></div>
-            <div id="cuadrado6" class="cuadrado"></div>
-            <div id="cuadrado7" class="cuadrado"></div>
-            <div id="cuadrado8" class="cuadrado"></div>
-            <div id="cuadrado9" class="cuadrado"></div>
-        </div>       
+    <h1>TRES EN RAYA</h1>
+    <p id="info">Es el turno del jugador X
+    </p>
+    <div class="cuadricula">
+        <button id="c1" class="cuadrado"></button>
+        <button id="c2" class="cuadrado"></button>
+        <button id="c3" class="cuadrado"></button>
+        <button id="c4" class="cuadrado"></button>
+        <button id="c5" class="cuadrado"></button>
+        <button id="c6" class="cuadrado"></button>
+        <button id="c7" class="cuadrado"></button>
+        <button id="c8" class="cuadrado"></button>
+        <button id="c9" class="cuadrado"></button>
     </div>
-    <cursor></cursor>
-    <button class="boton" id="boton-reinicio">Volver a jugar</button>
-    <div class="mensaje"></div>
-    <script src="./javascript/scripts.js"></script>
+    <button class="otra_partida" id="boton">Volver a jugar</button>
+    <div class="marcador">
+        <h3>X:<p id="x">0</p></h3>
+        <h3>O:<p id="o">0</p></h3>
+    </div>
 </body>
 </html>
